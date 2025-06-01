@@ -1,13 +1,109 @@
-<!DOCTYPE html>
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
-	<title>great domain name for sale</title>
-	<meta name="generator" content="BBEdit 15.5">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>you.me - Premium .ME Domain for Sale</title>
+  <meta name="description" content="Own you.me, a rare and memorable .ME domain perfect for personal branding, social media, or creative projects. Contact us to secure this unique digital asset.">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-<p style="font-weight: 400; text-align: center;"><span style="font-size: 18pt;">great domain names for sale:</span><br /><span style="color: #3598db;"><strong><span style="font-size: 18pt;">m.ai</span></strong></span><br /><span style="color: #3598db;"><strong><span style="font-size: 18pt;">k.ai</span></strong></span><br /><span style="color: #3598db;"><strong><span style="font-size: 18pt;">you.me</span></strong></span></p>
-<p style="font-weight: 400; text-align: center;"><br /><span style="font-size: 18pt;">please email: <span style="color: #3598db;">chunceshi@gmail.com</span></span></p>
-<p style="font-weight: 400; text-align: center;"><span style="font-size: 18pt;">thank you</span></p>
+<body class="bg-gray-100 font-sans">
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-12">
+    <div class="container mx-auto text-center">
+      <h1 class="text-5xl font-bold mb-4">you.me</h1>
+      <p class="text-xl">A Premium .ME Domain for Sale</p>
+      <a href="#contact" class="mt-6 inline-block bg-white text-indigo-600 font-semibold py-3 px-6 rounded-lg hover:bg-gray-200 transition">Inquire Now</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto py-12 px-4">
+    <!-- Why you.me Section -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold text-gray-800 mb-6 text-center">Why you.me?</h2>
+      <p class="text-lg text-gray-600 mb-4">The domain <strong>you.me</strong> is a rare and versatile digital asset, perfect for social network, social media, or creative projects. Its short, meaningful, and personal nature makes it stand out in a crowded digital landscape.</p>
+      <p class="text-lg text-gray-600">Highlights of <strong>you.me</strong>:</p>
+      <ul class="list-disc list-inside text-lg text-gray-600 mt-4 space-y-2">
+        <li><strong>Scarcity</strong>: Short, meaningful .ME domains like you.me are highly sought after and rarely available, making them a unique opportunity.</li>
+        <li><strong>Memorability</strong>: The phrase "you.me" is concise, catchy, and universally relatable, ideal for building a strong online identity.</li>
+        <li><strong>Personal Appeal</strong>: The .ME extension conveys a personal, human touch, perfect for blogs, portfolios, or social media platforms.</li>
+        <li><strong>Versatility</strong>: Suitable for individuals, influencers, or businesses looking to create a memorable and engaging online presence.</li>
+        <li><strong>Investment Value</strong>: Premium domains like you.me are valuable assets that often appreciate over time due to their rarity and demand.</li>
+      </ul>
+    </section>
+
+    <!-- Value of .ME Domains Section -->
+    <section class="mb-12">
+      <h2 class="text-3xl font-semibold text-gray-800 mb-6 text-center">The Value of you.me</h2>
+      <p class="text-lg text-gray-600 mb-4">The .ME top-level domain is globally recognized for its personal and approachable branding, making it a favorite for individuals and businesses alike. A domain like you.me offers:</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-indigo-600 mb-2">Uniqueness</h3>
+          <p class="text-gray-600">you.me is a one-of-a-kind domain, instantly conveying connection and engagement.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-indigo-600 mb-2">Global Appeal</h3>
+          <p class="text-gray-600">The universal phrase "you.me" resonates across cultures, perfect for international audiences.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold text-indigo-600 mb-2">Brand Potential</h3>
+          <p class="text-gray-600">A short, evocative domain like you.me builds instant brand recognition and trust.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section id="contact" class="text-center">
+      <h2 class="text-3xl font-semibold text-gray-800 mb-6">Own you.me Today</h2>
+      <p class="text-lg text-gray-600 mb-6">Don’t miss your chance to secure this premium domain. Contact us at <a href="mailto:chunceshi@gmail.com" class="text-indigo-600 hover:underline">chunceshi@gmail.com</a> to discuss acquisition details or make an offer.</p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto text-center">
+      <p>© 2025 you.me. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
