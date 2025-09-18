@@ -172,13 +172,13 @@
                 <input 
                     type="number" 
                     id="budgetInput" 
-                    placeholder="Minimum budget: $350,000" 
+                    placeholder="Minimum budget: $360,000" 
                     class="border"
                 >
                 <button onclick="checkBudget()">submit budget & get contact info </button>
             </div>
-            <p id="errorMessage" class="text-red-500 hidden">For this premium domain, a budget of at least $350,000 is required to initiate negotiations.</p>
-            <p id="contactInfo" class="mt-4 hidden">Contact us at: <span class="email-obfuscate"><span id="email">hi@you.me</span></span></p>
+            <p id="errorMessage" class="text-red-500 hidden">For this premium domain, a budget of at least $360,000 is required to initiate negotiations.</p>
+            <p id="contactInfo" class="mt-4 hidden">To get asking price, please contact us at: <span class="email-obfuscate"><span id="email">hi@you.me</span></span></p>
         </section>
     </div>
 
@@ -188,7 +188,7 @@
             const errorMessage = document.getElementById('errorMessage');
             const contactInfo = document.getElementById('contactInfo');
             
-            if (budgetInput < 350000 || isNaN(budgetInput) || budgetInput === '') {
+            if (budgetInput < 360000 || isNaN(budgetInput) || budgetInput === '') {
                 errorMessage.classList.remove('hidden');
                 contactInfo.classList.add('hidden');
             } else {
